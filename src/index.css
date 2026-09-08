@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+:root {
+  --acid: #B7FF00;
+  --black: #050505;
+  --white: #F5F5F0;
+  --gray: #858585;
+}
+
+@theme {
+  --color-acid: #B7FF00;
+  --color-dark: #050505;
+  --color-light: #F5F5F0;
+  --color-muted: #858585;
+
+  --font-display: 'Anton', 'Bebas Neue', sans-serif;
+  --font-condensed: 'Bebas Neue', sans-serif;
+  --font-editorial: 'Syne', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--black);
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+/* Aggressive editorial typography classes */
+.font-display {
+  font-family: 'Anton', 'Bebas Neue', sans-serif;
+  text-transform: uppercase;
+}
+
+.font-condensed {
+  font-family: 'Bebas Neue', 'Anton', sans-serif;
+  text-transform: uppercase;
+}
+
+.font-editorial {
+  font-family: 'Syne', sans-serif;
+}
+
+.hero-title-clamp {
+  font-size: clamp(6.5rem, 19vw, 24rem);
+  line-height: 0.78;
+  letter-spacing: -0.05em;
+  font-weight: 900;
+}
+
+/* Custom Film Grain */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* Optical layering masks for 3D bottle weave */
+.clip-left-letters {
+  clip-path: polygon(0 0, 52% 0, 48% 100%, 0 100%);
+}
+
+.clip-right-letters {
+  clip-path: polygon(52% 0, 100% 0, 100% 100%, 48% 100%);
+}
+
+/* Custom cursor body styling for desktop */
+@media (hover: hover) and (pointer: fine) {
+  body.has-custom-cursor,
+  .has-custom-cursor {
+    cursor: none;
+  }
+  .has-custom-cursor a,
+  .has-custom-cursor button,
+  .has-custom-cursor [role="button"] {
+    cursor: none;
+  }
+  .has-custom-cursor input {
+    cursor: text;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
